@@ -1,0 +1,196 @@
+.metaverse {
+    background-image: url("~assets/images/metaverse/bg.webp");
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+}
+.metaverse__container {
+    padding-top: 80px;
+    padding-bottom: 60px;
+}
+.metaverse__title {
+    text-align: center;
+    margin-bottom: 48px;
+}
+.metaverse__subtitle {
+    max-width: 680px;
+    margin: 0 auto;
+    margin-bottom: 260px;
+
+    font-family: "Orbitron", sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 36px;
+    line-height: 52px;
+    color: white;
+    text-shadow: 0px 0px 10px #9054ff;
+}
+.metaverse__content {
+    margin-left: -64px;
+    margin-right: -64px;
+}
+.metaverse__item-wrapper {
+    padding-left: 56px;
+    padding-right: 56px;
+    margin-bottom: 48px;
+}
+.metaverse__item-final {
+    display: flex;
+    align-items: center;
+    border: 2px solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(to right, #8f53ff, #6076e7);
+    background: rgba(87, 35, 171, 0.1);
+    backdrop-filter: blur(30px);
+    height: 100%;
+    padding: 0 52px;
+
+    text-shadow: 0px 0px 10px #9054ff;
+    color: white;
+    font-size: 22px;
+    text-transform: uppercase;
+    font-weight: 600;
+    line-height: 140%;
+}
+@media (min-width: 300px) and (max-width: 787px) {
+    .metaverse {
+        background-size: 250% auto;
+        background-position-x: center;
+    }
+    .metaverse__container {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+    .metaverse__title {
+        margin-bottom: 20px;
+    }
+    .metaverse__subtitle {
+        max-width: 340px;
+        margin-bottom: 180px;
+
+        font-size: 18px;
+        line-height: 140%;
+    }
+    .metaverse__content {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .metaverse__item-wrapper {
+        padding-left: 0;
+        padding-right: 0;
+        margin-bottom: 0;
+    }
+    .metaverse__item-final {
+        height: 300px;
+        margin: 0 auto;
+        max-width: 340px;
+        padding: 0 24px;
+ 
+        font-size: 20px;
+        text-align: center;
+    }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+    .metaverse {
+        background-size: 140% auto;
+        background-position-x: center;
+    }
+    .metaverse__container {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+    .metaverse__title {
+        margin-bottom: 20px;
+    }
+    .metaverse__subtitle {
+        max-width: 520px;
+        margin-bottom: 240px;
+
+        font-size: 28px;
+        line-height: 36px;
+    }
+    .metaverse__content {
+        margin-left: -20px;
+        margin-right: -20px;
+    }
+    .metaverse__item-wrapper {
+        padding-left: 16px;
+        padding-right: 16px;
+        margin-bottom: 40px;
+    }
+    .metaverse__item-final {
+        height: 300px;
+        padding: 0 32px;
+
+        text-shadow: 0px 0px 10px #9054ff;
+        color: white;
+        font-size: 24px;
+        text-transform: uppercase;
+        font-weight: 600;
+        line-height: 140%;
+    }
+}
+@media (min-width: 992px) and (max-width: 1599px) {
+    .metaverse__container {
+        padding-top: 60px;
+        padding-bottom: 40px;
+    }
+    .metaverse__title {
+        margin-bottom: 24px;
+    }
+    .metaverse__subtitle {
+        max-width: 600px;
+        margin-bottom: 200px;
+
+        font-size: 32px;
+        line-height: 40px;
+    }
+    .metaverse__content {
+        margin-left: -40px;
+        margin-right: -40px;
+    }
+    .metaverse__item-wrapper {
+        padding-left: 32px;
+        padding-right: 32px;
+        margin-bottom: 36px;
+    }
+    .metaverse__item-final {
+        padding: 0 48px;
+
+        text-shadow: 0px 0px 10px #9054ff;
+        color: white;
+        font-size: 20px;
+        text-transform: uppercase;
+        font-weight: 600;
+        line-height: 140%;
+    }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+    .metaverse__container {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+    .metaverse__title {
+        margin-bottom: 20px;
+    }
+    .metaverse__subtitle {
+        max-width: 520px;
+        margin-bottom: 180px;
+
+        font-size: 28px;
+        line-height: 36px;
+    }
+    .metaverse__content {
+        margin-left: -20px;
+        margin-right: -20px;
+    }
+    .metaverse__item-wrapper {
+        padding-left: 16px;
+        padding-right: 16px;
+        margin-bottom: 48px;
+    }
+}
+@media (min-width: 1480px) and (max-width: 1599px) {
+    .metaverse__subtitle {
+        margin-bottom: 280px;
+    }
+}

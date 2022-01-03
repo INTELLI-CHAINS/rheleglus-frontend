@@ -1,0 +1,358 @@
+:root {
+    --card-transition-duration: 700ms;
+    --card-transition-easing: ease;
+}
+$transition-duration : 0.7s;
+
+$slide-height: 600px;
+$slide-width: 540px;
+
+.slider-wrapper {
+    margin: 0 auto;
+    width: 100%;
+    height: 600px;
+    position: relative;
+}
+.slider {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    perspective: 1000px;
+    &.left {
+        .sliderItem-wrapper {
+            &.prev {
+                z-index: 8;
+            }
+            &.current {
+                z-index: 9;
+            }
+            &.next {
+                z-index: 7;
+            }
+        }
+    }
+    &.right {
+        .sliderItem-wrapper {
+            &.prev {
+                z-index: 8;
+            }
+            &.current {
+                z-index: 9;
+            }
+            &.next {
+                z-index: 7;
+            }
+        }
+    }
+}
+.sliderItem-wrapper {
+    backface-visibility: hidden;
+    --card-translateY-offset: 0;
+    position: absolute;
+    transform: translate(-50%, -50%) translateX(var(--card-translateX-offset)) translateY(var(--card-translateY-offset)) scale(var(--card-scale-offset));
+    left: 50%;
+    top: 50%;
+    display: block;
+    width: $slide-width;
+    height: $slide-height;
+    transition: {
+        property : opacity, transform;
+        duration : $transition-duration;
+    };
+    user-select: none;
+    opacity: 1;
+    &.prev {
+        --card-translateX-offset: calc(-1 * #{$slide-width}* 0.9);
+        --card-rotation-offset: 30deg;
+    }
+    &.current {
+        --current-card-rotation-offset: 0;
+        --card-translateX-offset: 0;
+        --card-rotation-offset: var(--current-card-rotation-offset);
+        --card-scale-offset: 1;
+        --opacity: 1;
+        opacity: 1;
+    }
+    &.next {
+        --card-translateX-offset: calc(#{$slide-width} * 0.9);
+        --card-rotation-offset:  -30deg;
+    }
+    &.prev,
+    &.next {
+        --card-scale-offset: 0.75;
+        --opacity: 0.6;
+        opacity: 1;
+    }
+    &.pre-prev,
+    &.pro-next {
+        --card-translateX-offset: calc(-1 * #{$slide-width}* 2);
+        --card-rotation-offset: 0deg;
+        --card-scale-offset: 0.6;
+        opacity: 0;
+    }
+    &.pro-next {
+        --card-translateX-offset: calc(#{$slide-width} * 2);
+    }
+    &.inactive {
+        --card-translateX-offset: 0;
+        opacity: 0;
+    }
+    &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: #000;
+        z-index: 1;
+        transition: opacity var(--card-transition-duration) var(--card-transition-easing);
+        opacity: calc(1 - var(--opacity));
+        clip-path: polygon(
+            calc(100% - 50px) 0%,
+            #{$slide-height - 50px} 50px,
+            100% 100%,
+            50px 100%,
+            0 calc(100% - 50px),
+            0% 0%
+        );
+    }
+}
+.sliderItem {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    clip-path: polygon(
+        calc(100% - 50px) 0%,
+        #{$slide-height - 50px} 50px,
+        100% 100%,
+        50px 100%,
+        0 calc(100% - 50px),
+        0% 0%
+    );
+}
+.sliderItem__image {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+@media (min-width: 300px) and (max-width: 767px) {
+    $slide-height: 400px;
+    $slide-width: 360px;
+    .slider-wrapper {
+        height: 400px;
+    }
+    .sliderItem-wrapper {
+        width: $slide-width;
+        height: $slide-height;
+        &.prev {
+            --card-translateX-offset: calc(-1 * #{$slide-width}* 1.1);
+        }
+        &.next {
+            --card-translateX-offset: calc(#{$slide-width} * 1.1);
+        }
+        &::before {
+            clip-path: polygon(
+                calc(100% - 40px) 0%,
+                #{$slide-height - 40px} 45px,
+                100% 100%,
+                40px 100%,
+                0 #{$slide-height - 40px},
+                0% 0%
+            );
+        }
+    }
+    .sliderItem {
+        clip-path: polygon(
+            calc(100% - 40px) 0%,
+            #{$slide-height - 40px} 45px,
+            100% 100%,
+            40px 100%,
+            0 #{$slide-height - 40px},
+            0% 0%
+        );
+    }
+}
+@media (min-width: 300px) and (max-width: 460px) {
+    $slide-height: 360px;
+    $slide-width: 320px;
+    .sliderItem-wrapper {
+        width: $slide-width;
+        height: $slide-height;
+        &::before {
+            clip-path: polygon(
+                calc(100% - 40px) 0%,
+                #{$slide-height - 40px} 40px,
+                100% 100%,
+                40px 100%,
+                0 #{$slide-height - 40px},
+                0% 0%
+            );
+        }
+    }
+    .sliderItem {
+        clip-path: polygon(
+            calc(100% - 40px) 0%,
+            #{$slide-height - 40px} 40px,
+            100% 100%,
+            40px 100%,
+            0 #{$slide-height - 40px},
+            0% 0%
+        );
+    }
+}
+@media (min-width: 300px) and (max-width: 400px) {
+    $slide-height: 300px;
+    $slide-width: 260px;
+    .sliderItem-wrapper {
+        width: $slide-width;
+        height: $slide-height;
+        &::before {
+            clip-path: polygon(
+                calc(100% - 40px) 0%,
+                #{$slide-height - 40px} 40px,
+                100% 100%,
+                40px 100%,
+                0 #{$slide-height - 40px},
+                0% 0%
+            );
+        }
+    }
+    .sliderItem {
+        clip-path: polygon(
+            calc(100% - 40px) 0%,
+            #{$slide-height - 40px} 40px,
+            100% 100%,
+            40px 100%,
+            0 #{$slide-height - 40px},
+            0% 0%
+        );
+    }
+}
+@media (min-width: 787px) and (max-width: 991px) {
+    $slide-height: 340px;
+    $slide-width: 280px;
+    .slider-wrapper {
+        height: 400px;
+    }
+    .sliderItem-wrapper {
+        width: $slide-width;
+        height: $slide-height;
+        &.prev {
+            --card-translateX-offset: calc(-1 * #{$slide-width}* 0.9);
+        }
+        &.next {
+            --card-translateX-offset: calc(#{$slide-width} * 0.9);
+        }
+        &::before {
+            clip-path: polygon(
+                calc(100% - 40px) 0%,
+                #{$slide-height - 40px} 80px,
+                100% 100%,
+                40px 100%,
+                0 #{$slide-height - 40px},
+                0% 0%
+            );
+        }
+    }
+    .sliderItem {
+        clip-path: polygon(
+            calc(100% - 40px) 0%,
+            #{$slide-height - 40px} 80px,
+            100% 100%,
+            40px 100%,
+            0 #{$slide-height - 40px},
+            0% 0%
+        );
+    }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+    $slide-height: 420px;
+    $slide-width: 360px;
+    .slider-wrapper {
+        height: 440px;
+    }
+    .sliderItem-wrapper {
+        width: $slide-width;
+        height: $slide-height;
+        &.prev {
+            --card-translateX-offset: calc(-1 * #{$slide-width}* 0.9);
+        }
+        &.next {
+            --card-translateX-offset: calc(#{$slide-width} * 0.9);
+        }
+        &::before {
+            clip-path: polygon(
+                calc(100% - 40px) 0%,
+                #{$slide-height - 40px} 80px,
+                100% 100%,
+                40px 100%,
+                0 #{$slide-height - 40px},
+                0% 0%
+            );
+        }
+    }
+    .sliderItem {
+        clip-path: polygon(
+            calc(100% - 40px) 0%,
+            #{$slide-height - 40px} 80px,
+            100% 100%,
+            40px 100%,
+            0 #{$slide-height - 40px},
+            0% 0%
+        );
+    }
+}
+@media (min-width: 1200px) and (max-width: 1599px) {
+    $slide-height: 520px;
+    $slide-width: 480px;
+
+    .sliderItem-wrapper {
+        width: $slide-width;
+        height: $slide-height;
+        &.prev {
+            --card-translateX-offset: calc(-1 * #{$slide-width}* 0.9);
+        }
+        &.next {
+            --card-translateX-offset: calc(#{$slide-width} * 0.9);
+        }
+        &::before {
+            clip-path: polygon(
+                calc(100% - 60px) 0%,
+                $slide-height 100px,
+                100% 100%,
+                60px 100%,
+                0 #{$slide-height - 60px},
+                0% 0%
+            );
+        }
+    }
+    .sliderItem {
+        clip-path: polygon(
+            calc(100% - 60px) 0%,
+            $slide-height 100px,
+            100% 100%,
+            60px 100%,
+            0 #{$slide-height - 60px},
+            0% 0%
+        );
+    }
+}
+@media (min-width: 1200px) and (max-width: 1479px) {
+    $slide-height: 500px;
+    $slide-width: 440px;
+    .sliderItem-wrapper {
+        width: $slide-width;
+        height: $slide-height;
+        &.prev {
+            --card-translateX-offset: calc(-1 * #{$slide-width}* 0.9);
+        }
+        &.next {
+            --card-translateX-offset: calc(#{$slide-width} * 0.9);
+        }
+    }
+}
