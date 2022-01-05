@@ -11,7 +11,11 @@ import { useLocation } from 'react-router-dom'
 import BigNumber from 'bignumber.js';
 import MultiCall from 'utils/multiCall';
 import nftAbi from '../../../config/abi/alien.json'
-import { parse } from 'path';
+import { toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css'
+import { parseBytes32String } from 'ethers/lib/utils';
+toast.configure();
+
 
 
 const MintPopup = ({ isOpen, setIsOpen }) => {
@@ -21,7 +25,6 @@ const MintPopup = ({ isOpen, setIsOpen }) => {
     const { activate, account } = useWeb3React();
     const nftAddress = getNftAddress();
     const [ercData, setErcData] = useState();
-    const [ercMessage, setErcMessage] = useState('');
     const [presaleMessage, setPresalesMessage] = useState('');
     const [isPresaleStart, setIsPresaleStart] = useState(true);
     const [isPresaleEnd, setIsPresaleEnd] = useState(false);
@@ -33,7 +36,10 @@ const MintPopup = ({ isOpen, setIsOpen }) => {
         const totalPrice = await contract.methods.getNFTPriceForETH(mintAmount).call();
         const refAddress = localStorage.getItem('refAddress');
 
-        await contract
+        const { presaleCount, endPresaleCount } = ercData;
+
+        if ((presaleCount + mintAmount) < endPresaleCount) {
+            await contract
             .methods
             .mintNFTPresale(mintAmount, refAddress)
             .send({ from: account, value: totalPrice })
@@ -43,6 +49,11 @@ const MintPopup = ({ isOpen, setIsOpen }) => {
             .on("error", () => {
                 window.alert("mint failed");
             });
+        } else {
+            toast.error("Exceeds MAX_NFT_SUPPLY of presale")
+        }
+
+       
     }
 
     const handleInputChange = (e) => {
@@ -101,6 +112,7 @@ const MintPopup = ({ isOpen, setIsOpen }) => {
             { address: nftAddress, name: "presaleCount" },
             { address: nftAddress, name: "endPresaleCount" },
             { address: nftAddress, name: "seedCount" },
+            { address: nftAddress, name: "_referrals", params: [account] },
         ];
         let [
             SALE_START_TIMESTAMP_PRESALE,
@@ -108,6 +120,7 @@ const MintPopup = ({ isOpen, setIsOpen }) => {
             presaleCount,
             endPresaleCount,
             seedCount,
+            _referrals
         ] = await MultiCall(nftAbi, erccall);
 
         SALE_START_TIMESTAMP_PRESALE = new BigNumber(parseInt(SALE_START_TIMESTAMP_PRESALE)).toFixed(2);
@@ -115,18 +128,17 @@ const MintPopup = ({ isOpen, setIsOpen }) => {
         presaleCount = new BigNumber(parseInt(presaleCount)).toFixed(2);
         endPresaleCount = new BigNumber(parseInt(endPresaleCount)).toFixed(2);
         seedCount = new BigNumber(parseInt(seedCount)).toFixed(0);
+        _referrals = new BigNumber(parseInt(_referrals)).toFixed(0);
 
         setErcData({
             SALE_START_TIMESTAMP_PRESALE,
             SALE_END_TIMESTAMP_PRESALE,
             presaleCount,
             endPresaleCount,
-            seedCount
+            seedCount,
+            _referrals
         })
 
-        if (presaleCount > endPresaleCount) {
-            setErcMessage('Exceeds MAX_NFT_SUPPLY of presale')
-        }
         if (currentTimestamp < SALE_START_TIMESTAMP_PRESALE) {
             setIsPresaleStart(false)
             setPresalesMessage('Minting time not yet')
@@ -150,14 +162,17 @@ const MintPopup = ({ isOpen, setIsOpen }) => {
             });
     }
 
+    const claimReferral = async () => {
+        alert('claim later')
+    }
+
     useEffect(() => {
         saveRefAddress()
         connectMetamask()
+        if (account) {
+            ErcMultiCalls();
+        }
     }, [account])
-
-    useEffect(() => {
-        ErcMultiCalls();
-    }, [])
 
     return (
         <div className={`mintPopup ${isOpen ? 'active' : ''}`} >
@@ -179,12 +194,16 @@ const MintPopup = ({ isOpen, setIsOpen }) => {
                         <div className="value">
                             SeedCount: {parseInt(ercData.seedCount)} </div> : null
                     }
+                    {parseInt(ercData?._referrals) ?
+                        <div className="value">
+                            ReferralCount: {parseInt(ercData._referrals)} </div> : null
+                    }
 
                 </div>
                 <div className="mint__inputs">
                     {account ?
                         <>
-                            {!parseInt(ercData?.seedCount) ?
+                            {!parseInt(ercData?.seedCount) && isPresaleStart && !isPresaleEnd ?
                                 <>
                                     <input
                                         type="number"
@@ -199,10 +218,12 @@ const MintPopup = ({ isOpen, setIsOpen }) => {
                                 {parseInt(ercData?.seedCount) ?
                                     <ObliqueButton text={'Claim Seed'} onClick={claimSeed} /> : null
                                 }
-                                <ObliqueButton text={'Copy Referral Link'} onClick={() => copyText(`${host}/?ref=${account}`)} />
+                                <div className="mint__inputs__row">
+                                    <ObliqueButton text={'Copy Referral Link'} onClick={() => copyText(`${host}/?ref=${account}`)} />
+                                   {parseInt(ercData?._referrals) ?  <ObliqueButton text={'Claim RefAmount'} onClick={claimReferral} /> : null}
+                                </div>
                             </>
-                        </>
-                        :
+                        </> :
                         <ObliqueButton text={'Connect Metamask'} onClick={connectMetamask} />
                     }
 
