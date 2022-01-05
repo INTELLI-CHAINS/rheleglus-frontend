@@ -1,0 +1,126 @@
+.lineages {
+    position: relative;
+    margin-bottom: 220px;
+    &::after {
+        content: "";
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        left: 0;
+        bottom: -300px;
+        background: linear-gradient(180deg, #120d2b 0%, rgba(9, 7, 23, 0) 47.24%, rgba(0, 0, 0, 0) 100%),
+            url("~assets/images/lineages/bg.webp");
+        background-position: bottom;
+        background-size: contain;
+        opacity: 0.7;
+        background-repeat: no-repeat;
+        mix-blend-mode: lighten;
+    }
+}
+.lineages-inner {
+    border-radius: 920px;
+    background: #0b0625;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+}
+.lineages__container {
+    padding-top: 180px;
+    padding-bottom: 240px;
+}
+.lineages__title {
+    text-align: center;
+    margin-bottom: 160px;
+    position: relative;
+    z-index: 1;
+}
+@media (min-width: 300px) and (max-width: 787px) {
+    .lineages {
+        margin-bottom: 80px;
+        &::after {
+            bottom: -100px;
+        }
+    }
+    .lineages__container {
+        padding-top: 120px;
+        padding-bottom: 80px;
+    }
+    .lineages__title {
+        margin-bottom: 40px;
+    }
+}
+@media (min-width: 300px) and (max-width: 575px) {
+    .lineages {
+        &::after {
+            bottom: -60px;
+        }
+    }
+}
+@media (min-width: 380px) and (max-width: 479px) {
+    .lineages {
+        &::after {
+            bottom: -72px;
+        }
+    }
+}
+@media (min-width: 480px) and (max-width: 575px) {
+    .lineages {
+        &::after {
+            bottom: -80px;
+        }
+    }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+    .lineages {
+        margin-bottom: 160px;
+        &::after {
+            bottom: -140px;
+        }
+    }
+    .lineages__container {
+        padding-top: 120px;
+        padding-bottom: 120px;
+    }
+    .lineages__title {
+        margin-bottom: 40px;
+    }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+    .lineages {
+        margin-bottom: 80px;
+        &::after {
+            bottom: -180px;
+        }
+    }
+    .lineages__container {
+        padding-top: 200px;
+        padding-bottom: 280px;
+    }
+    .lineages__title {
+        margin-bottom: 80px;
+    }
+}
+@media (min-width: 1200px) and (max-width: 1599px) {
+    .lineages {
+        margin-bottom: 100px;
+        padding-bottom: 0;
+        &::after {
+            bottom: -220px;
+        }
+    }
+    .lineages__container {
+        padding-top: 200px;
+        padding-bottom: 280px;
+    }
+    .lineages__title {
+        margin-bottom: 120px;
+    }
+}
+@media (min-width: 1480px) and (max-width: 1599px) {
+    .lineages {
+        margin-bottom: 140px;
+        &::after {
+            bottom: -240px;
+        }
+    }
+}

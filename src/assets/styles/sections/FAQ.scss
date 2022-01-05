@@ -1,0 +1,95 @@
+.FAQ {
+    background: #120d2b;
+    position: relative;
+    &::after {
+        content: '';
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        background: linear-gradient(199.35deg, rgba(18, 13, 43, 0.6) 12.99%, rgba(18, 13, 43, 0.63) 104.06%),
+            linear-gradient(90.46deg, #120d2b 0.37%, rgba(9, 6, 21, 0) 44.62%, rgba(0, 0, 0, 0) 87.41%),
+            linear-gradient(180deg, #120d2b 5.62%, rgba(18, 13, 43, 0) 65.25%, #120d2b 99.66%),
+            url("~assets/images/FAQ/bg.png");
+        background-size: 100% auto;
+        background-position: 100% 100%;
+        background-repeat: no-repeat;
+        background-blend-mode: lighten;
+    }
+}
+.FAQ__container {
+    position: relative;
+    z-index: 1;
+    padding-top: 120px;
+    padding-bottom: 120px;
+}
+.FAQ__title {
+    text-align: center;
+    margin-bottom: 80px;
+}
+.FAQ__content {
+}
+.FAQ__item-wrapper {
+    margin-bottom: 40px;
+}
+@media (min-width: 300px) and (max-width: 787px) {
+    .FAQ {
+        &::after {
+            display: none;
+        }
+    }
+    .FAQ__container {
+        padding-top: 60px;
+        padding-bottom: 20px;
+    }
+    .FAQ__title {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .FAQ__item-wrapper {
+        margin-bottom: 28px;
+    }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+    .FAQ__container {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+    .FAQ__title {
+        text-align: center;
+        margin-bottom: 60px;
+    }
+
+    .FAQ__item-wrapper {
+        margin-bottom: 28px;
+    }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+    .FAQ__container {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+    .FAQ__title {
+        text-align: center;
+        margin-bottom: 60px;
+    }
+
+    .FAQ__item-wrapper {
+        margin-bottom: 28px;
+    }
+}
+@media (min-width: 1200px) and (max-width: 1599px) {
+    .FAQ__container {
+        padding-top: 80px;
+        padding-bottom: 60px;
+    }
+    .FAQ__title {
+        text-align: center;
+        margin-bottom: 60px;
+    }
+    .FAQ__item-wrapper {
+        margin-bottom: 32px;
+    }
+}

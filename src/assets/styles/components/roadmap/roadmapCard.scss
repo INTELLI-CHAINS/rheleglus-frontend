@@ -1,0 +1,83 @@
+.roadmapCard {
+    position: relative;
+    padding: 40px 44px;
+    background: rgba(87, 35, 171, 0.1);
+    backdrop-filter: blur(90px);
+    border: 1px solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(to top, #8f53ff 0.05%, #6076e7 100.16%);
+    backface-visibility: hidden;
+    will-change: opacity;
+}
+.roadmapCard__heading {
+    color: #ffffff;
+    font-size: 24px;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    text-shadow: 0px 0px 10px #9054ff;
+}
+.roadmapCard__list {
+    list-style-type: none;
+    padding: 0;
+}
+.roadmapCard__list-item {
+    margin-bottom: 24px;
+    font-size: 20px;
+    line-height: 145%;
+    color: #d6d6d6;
+    &::before {
+        content: "•";
+        margin-right: 8px;
+    }
+}
+@media (min-width: 300px) and (max-width: 787px) {
+    .roadmapCard {
+        padding: 16px 16px 8px;
+        backdrop-filter: blur(60px);
+    }
+    .roadmapCard__heading {
+        font-size: 18px;
+    }
+    .roadmapCard__list-item {
+        margin-bottom: 16px;
+        font-size: 16px;
+        line-height: 140%;
+    }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+    .roadmapCard {
+        padding: 20px 28px;
+        backdrop-filter: blur(60px);
+    }
+    .roadmapCard__heading {
+        font-size: 20px;
+    }
+    .roadmapCard__list-item {
+        margin-bottom: 16px;
+        font-size: 18px;
+        line-height: 150%;
+    }
+}
+@media (min-width: 992px) and (max-width: 1599px) {
+    .roadmapCard {
+        padding: 16px 28px;
+        backdrop-filter: blur(60px);
+    }
+    .roadmapCard__list-item {
+        margin-bottom: 16px;
+        font-size: 18px;
+        line-height: 150%;
+    }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+    .roadmapCard__list-item {
+        font-size: 16px;
+        line-height: 140%;
+    }
+}
+
+@supports not (backdrop-filter: blur(90px)) {
+    .roadmapCard {
+        background: rgba(42, 28, 94, 0.8);
+    }
+}
