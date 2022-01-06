@@ -168,7 +168,7 @@ const MintPopup = ({ isOpen, setIsOpen }) => {
 
     useEffect(() => {
         saveRefAddress()
-        connectMetamask()
+       // connectMetamask()
         if (account) {
             ErcMultiCalls();
         }

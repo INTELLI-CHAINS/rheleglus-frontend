@@ -20,7 +20,7 @@ const Collection = () => {
                         Collection
                     </h2>
                     <h4 className="collection__subtitle">
-                        7777 Programmatically Generated Unique NFTs waiting to be awaken on the ETH Blockchain
+                        7777 Programmatically Generated Unique NFTs waiting to be awakened on the ETH Blockchain
                     </h4>
                     <ObliqueLink text={'view on opensea'} linkTo={'#'} />
                 </div>

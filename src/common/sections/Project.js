@@ -13,7 +13,7 @@ const Project = () => {
     const [mintAmount, setmintAmount] = useState(1);
     const [isPopupOpen, setIsPopupOpen] = useState(false);
     const nftAddress = getNftAddress();
-    const [offerLastDate, setofferLastDate] = useState("February 1, 2022 23:00 UTC")
+    const [offerLastDate, setofferLastDate] = useState("January 22, 2022 13:30 UTC")
 
     const calculateTimeLeft = () => {
         var deadline = +new Date(offerLastDate).getTime();
@@ -76,7 +76,7 @@ const Project = () => {
                                 Project Rhelegus
                             </h2>
                             <div className="project__text">
-                                “If war is madness then Rhelegus is living in the apocalypse” — The True God of Xorbin. 7777 Programmatically generated unique NFTs waiting to be awaken on the ETH Blokchain.
+                                “If war is madness then Rhelegus is living in the apocalypse” — The True God of Xorbin. 7777 Programmatically generated unique NFTs waiting to be awakened on the ETH Blokchain.
                             </div>
 
                             <div className="project__lead">
@@ -88,7 +88,7 @@ const Project = () => {
                                         ETH 0.077
                                     </div>
                                 </div>
-                                <ObliqueButton text={'Mint Now'} onClick={() => setIsPopupOpen(true)} />
+                                <ObliqueButton text={'Mint Now'}  />
                             </div>
                         </div>
                     </div>
@@ -108,7 +108,7 @@ const Project = () => {
                         <ProjectParameter value='0.077 ETH' heading='Initial Price' />
                     </div>
                 </div>
-                <MintPopup isOpen={isPopupOpen} setIsOpen={() => setIsPopupOpen(false)} />
+                <MintPopup isOpen={isPopupOpen} setIsOpen={() => setIsPopupOpen(false)} disabled/>
             </div>
         </section>
     )

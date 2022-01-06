@@ -16,7 +16,7 @@ const Footer = () => {
                     <div className="footer__content">
                         <img src={LogoImage} alt="" className="footer__logo" />
                         <p className="footer__text">
-                            "If war is madness then Rhelegus is living in the apocalypse" - The True Gods of Xorbin. 7777 Programmatically Generated Unique NFTs waiting to be awaken on the ETH Blockchain.
+                            "If war is madness then Rhelegus is living in the apocalypse" - The True Gods of Xorbin. 7777 Programmatically Generated Unique NFTs waiting to be awakened on the ETH Blockchain.
                         </p>
                         <div className="footer__socials">
                             <a href="https://twitter.com/rhelegus" target="_blank" rel="noreferrer" className="footer__socialLink">
