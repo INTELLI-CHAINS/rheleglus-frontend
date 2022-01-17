@@ -18,6 +18,7 @@ import Subscribe from 'common/sections/Subscribe';
 import Navbar from 'common/sections/Navbar';
 import Gallery from 'common/sections/Gallery';
 import Footer from 'common/sections/Footer';
+import CookieBanner from 'common/components/cookiebanner';
 
 function App() {
    return (
@@ -51,6 +52,8 @@ function App() {
          <Subscribe />
 
          <Footer />
+
+         <CookieBanner />
 
          <a href="https://discord.link/ROR" target="_blank" rel="noreferrer" className="discord-link">
             <img src={DiscordWords} alt="" className="discord-link__words" />
