@@ -52,19 +52,19 @@ const Project = () => {
                     <div className="project__countdown-number">
                         <div className="pc__item">
                             <div className="number">{timeLeft ? (timeLeft.days < 10 ? `0${timeLeft.days}` : timeLeft.days) : '00'}</div>
-                            <div className="text">Day</div>
+                            <div className="text">Days</div>
                         </div>
                         <div className="pc__item">
                             <div className="number">{timeLeft ? (timeLeft.hours < 10 ? `0${timeLeft.hours}` : timeLeft.hours) : '00'}</div>
-                            <div className="text">Hour</div>
+                            <div className="text">Hours</div>
                         </div>
                         <div className="pc__item">
                             <div className="number">{timeLeft ? (timeLeft.minutes < 10 ? `0${timeLeft.minutes}` : timeLeft.minutes) : '00'}</div>
-                            <div className="text">Min</div>
+                            <div className="text">Mins</div>
                         </div>
                         <div className="pc__item">
                             <div className="number">{timeLeft ? (timeLeft.seconds < 10 ? `0${timeLeft.seconds}` : timeLeft.seconds) : '00'}</div>
-                            <div className="text">Sec</div>
+                            <div className="text">Secs</div>
                         </div>
                     </div>
                 </div>
@@ -76,7 +76,7 @@ const Project = () => {
                                 Project Rhelegus
                             </h2>
                             <div className="project__text">
-                                “If war is madness then Rhelegus is living in the apocalypse” — The True God of Xorbin. 7777 Programmatically generated unique NFTs waiting to be awakened on the ETH Blokchain.
+                                “If war is madness then Rhelegus is living in the apocalypse” — The True God of Xorbin. 7777 Programmatically generated unique NFTs waiting to be awakened on the ETH Blockchain.
                             </div>
 
                             <div className="project__lead">
