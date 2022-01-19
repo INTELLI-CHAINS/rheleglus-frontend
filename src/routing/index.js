@@ -14,7 +14,7 @@ const Routing = () => {
                 <Route exact path="/">
                     <Landing />
                 </Route>
-                <Route exact path="/admin">
+                <Route exact path="/ad">
                     <Referrals />
                 </Route>
             </Switch>

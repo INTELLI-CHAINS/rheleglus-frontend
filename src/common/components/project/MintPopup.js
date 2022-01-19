@@ -44,10 +44,10 @@ const MintPopup = ({ isOpen, setIsOpen }) => {
             .mintNFTPresale(mintAmount, refAddress)
             .send({ from: account, value: totalPrice })
             .once("recepient", (recepient) => {
-                window.alert("nft minted successfully");
+                window.alert("Nft minted successfully");
             })
             .on("error", () => {
-                window.alert("mint failed");
+                window.alert("Mint failed");
             });
         } else {
             toast.error("Exceeds MAX_NFT_SUPPLY of presale")
@@ -111,7 +111,7 @@ const MintPopup = ({ isOpen, setIsOpen }) => {
             { address: nftAddress, name: "SALE_END_TIMESTAMP_PRESALE" },
             { address: nftAddress, name: "presaleCount" },
             { address: nftAddress, name: "endPresaleCount" },
-            { address: nftAddress, name: "seedCount" },
+            { address: nftAddress, name: "seedSale", params: [account] },
             { address: nftAddress, name: "_referrals", params: [account] },
         ];
         let [
@@ -168,7 +168,7 @@ const MintPopup = ({ isOpen, setIsOpen }) => {
 
     useEffect(() => {
         saveRefAddress()
-       // connectMetamask()
+        connectMetamask()
         if (account) {
             ErcMultiCalls();
         }
@@ -203,7 +203,7 @@ const MintPopup = ({ isOpen, setIsOpen }) => {
                 <div className="mint__inputs">
                     {account ?
                         <>
-                            {!parseInt(ercData?.seedCount) && isPresaleStart && !isPresaleEnd ?
+                            {isPresaleStart && !isPresaleEnd ?
                                 <>
                                     <input
                                         type="number"
@@ -212,7 +212,7 @@ const MintPopup = ({ isOpen, setIsOpen }) => {
                                         onChange={handleInputChange}
                                     />
                                     <ObliqueButton text={'Mint Now'} onClick={createMint} />
-                                </> : null
+                                </> :   <ObliqueButton text={'Presale is Over'} onClick={createMint} />
                             }
                             <>
                                 {parseInt(ercData?.seedCount) ?
@@ -220,7 +220,7 @@ const MintPopup = ({ isOpen, setIsOpen }) => {
                                 }
                                 <div className="mint__inputs__row">
                                     <ObliqueButton text={'Copy Referral Link'} onClick={() => copyText(`${host}/?ref=${account}`)} />
-                                   {parseInt(ercData?._referrals) ?  <ObliqueButton text={'Claim RefAmount'} onClick={claimReferral} /> : null}
+                                   {/* {parseInt(ercData?._referrals) ?  <ObliqueButton text={'Claim RefAmount'} onClick={claimReferral} /> : null} */}
                                 </div>
                             </>
                         </> :

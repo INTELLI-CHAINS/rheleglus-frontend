@@ -88,7 +88,7 @@ const Project = () => {
                                         ETH 0.077
                                     </div>
                                 </div>
-                                <ObliqueButton text={'Mint Now'}  />
+                                <ObliqueButton text={'Mint Now'} onClick={() => setIsPopupOpen(true)} />
                             </div>
                         </div>
                     </div>
@@ -108,7 +108,7 @@ const Project = () => {
                         <ProjectParameter value='0.077 ETH' heading='Initial Price' />
                     </div>
                 </div>
-                <MintPopup isOpen={isPopupOpen} setIsOpen={() => setIsPopupOpen(false)} disabled/>
+                <MintPopup isOpen={isPopupOpen} setIsOpen={() => setIsPopupOpen(false)} />
             </div>
         </section>
     )

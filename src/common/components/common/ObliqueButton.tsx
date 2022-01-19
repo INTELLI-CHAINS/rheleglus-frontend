@@ -8,7 +8,7 @@ interface IObliqueButtonProps {
 const ObliqueButton = ({ text, onClick } : IObliqueButtonProps) => {
     return (
         <div className="obliqueLink-wrapper">
-            <button className="obliqueLink" >
+            <button className="obliqueLink" onClick={() => onClick()}>
                 {text}
             </button>
         </div>
