@@ -1,0 +1,280 @@
+$image-height: 620px;
+$image-width: 560px;
+
+.specification {
+    overflow: hidden;
+}
+.specification__container {
+    padding-top: 260px;
+    padding-bottom: 188px;
+}
+.specification__content-wrapper {
+}
+.specification__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-right: 80px;
+    position: relative;
+    z-index: 1;
+}
+.specification__title {
+    margin-bottom: 28px;
+}
+.specification__subtitle {
+    margin-bottom: 32px;
+
+    font-weight: 600;
+    font-size: 28px;
+    color: white;
+    line-height: 36px;
+}
+.specification__lead {
+    padding: 24px 28px;
+    background: linear-gradient(90deg, #8f53ff 0.05%, #6076e7 100.16%);
+    clip-path: polygon(94% 0, 100% 33%, 100% 84%, 90% 100%, 0 100%, 0% 0%);
+    margin-bottom: 32px;
+
+    font-size: 24px;
+    line-height: 28px;
+    color: white;
+    font-weight: 400;
+}
+.specification__text {
+    margin-bottom: 44px;
+
+    font-size: 24px;
+    line-height: 140%;
+    color: #d6d6d6;
+}
+.specification__more {
+    height: 64px;
+}
+.specification__image-block {
+}
+.specification__image-wrapper {
+    padding-left: 80px;
+    position: relative;
+    &::before {
+        content: "";
+        height: 150%;
+        width: 150%;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translateX(calc(-50% + 36px)) translateY(-55%);
+        background: linear-gradient(
+                90.12deg,
+                #120d2b 1.15%,
+                rgba(18, 13, 43, 0) 13.62%,
+                rgba(18, 13, 43, 0.0724638) 86.39%,
+                #120d2b 99.91%
+            ),
+            linear-gradient(182.91deg, #120d2b 5.01%, rgba(18, 13, 43, 0) 39.46%, #120d2b 76.63%),
+            url("~assets/images/specification/bg.png");
+        background-size: 100% auto;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+}
+.specification__image {
+    height: $image-height;
+    width: $image-width;
+    margin: 0 auto;
+    display: block;
+    clip-path: polygon(
+        calc(100% - 60px) 0%,
+        #{$image-height - 60px} 80px,
+        100% 100%,
+        60px 100%,
+        0 calc(100% - 60px),
+        0% 0%
+    );
+}
+@media (min-width: 300px) and (max-width: 787px) {
+    .specification__container {
+        padding-top: 60px;
+        padding-bottom: 120px;
+    }
+    .specification__content {
+        padding-right: 12px;
+    }
+    .specification__title {
+        margin-bottom: 24px;
+
+        text-align: center;
+    }
+    .specification__subtitle {
+        margin: 0 auto;
+        max-width: 520px;
+        margin-bottom: 20px;
+        text-align: center;
+
+        font-size: 16px;
+        line-height: 140%;
+    }
+    .specification__lead {
+        padding: 28px 16px;
+        margin-bottom: 20px;
+
+        font-size: 16px;
+        text-align: center;
+        line-height: 140%;
+    }
+    .specification__text {
+        margin-bottom: 28px;
+
+        font-size: 16px;
+        text-align: center;
+    }
+    .specification__button-wrapper {
+        margin: 0 auto;
+    }
+    .specification__image-block {
+        display: none;
+    }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+    .specification__container {
+        padding-top: 120px;
+        padding-bottom: 140px;
+    }
+    .specification__content {
+        padding-right: 20px;
+    }
+    .specification__title {
+        margin-bottom: 28px;
+
+        font-size: 40px;
+        text-align: center;
+    }
+    .specification__subtitle {
+        margin: 0 auto;
+        max-width: 660px;
+        margin-bottom: 28px;
+        text-align: center;
+
+        font-size: 22px;
+        line-height: 30px;
+    }
+    .specification__lead {
+        padding: 24px;
+        margin-bottom: 28px;
+
+        font-size: 18px;
+        line-height: 28px;
+    }
+    .specification__text {
+        margin-bottom: 32px;
+
+        font-size: 20px;
+        text-align: center;
+    }
+    .specification__button-wrapper {
+        margin: 0 auto;
+    }
+    .specification__image-block {
+        display: none;
+    }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+    $image-height: 480px;
+    $image-width: 440px;
+    .specification__container {
+        padding-top: 160px;
+        padding-bottom: 140px;
+    }
+    .specification__content {
+        padding-right: 20px;
+    }
+    .specification__title {
+        margin-bottom: 20px;
+    }
+    .specification__subtitle {
+        margin-bottom: 20px;
+
+        font-size: 20px;
+        line-height: 28px;
+    }
+    .specification__lead {
+        padding: 16px 20px;
+        margin-bottom: 20px;
+
+        font-size: 18px;
+        line-height: 24px;
+    }
+    .specification__text {
+        margin-bottom: 24px;
+
+        font-size: 18px;
+    }
+    .specification__image-block {
+    }
+    .specification__image-wrapper {
+        padding-left: 20px;
+        height: 100%;
+        &::before {
+            width: 180%;
+            height: 180%;
+            transform: translateX(calc(-50% + 16px)) translateY(-55%);
+        }
+    }
+    .specification__image {
+        height: $image-height;
+        width: $image-width;
+        clip-path: polygon(calc(100% - 60px) 0%, $image-height 92px, 100% 100%, 60px 100%, 0 calc(100% - 60px), 0% 0%);
+    }
+}
+@media (min-width: 1200px) and (max-width: 1599px) {
+    $image-height: 580px;
+    $image-width: 500px;
+    .specification__container {
+        padding-top: 200px;
+        padding-bottom: 180px;
+    }
+    .specification__content {
+        padding-right: 40px;
+    }
+    .specification__title {
+        margin-bottom: 32px;
+    }
+    .specification__subtitle {
+        margin-bottom: 24px;
+
+        font-size: 24px;
+        line-height: 32px;
+    }
+    .specification__lead {
+        padding: 24px;
+        margin-bottom: 24px;
+
+        font-size: 20px;
+        line-height: 26px;
+    }
+    .specification__text {
+        margin-bottom: 40px;
+
+        font-size: 20px;
+    }
+    .specification__image-block {
+    }
+    .specification__image-wrapper {
+        padding-left: 60px;
+        height: 100%;
+        &::before {
+            transform: translateX(calc(-50% + 20px)) translateY(-55%);
+        }
+    }
+    .specification__image {
+        height: $image-height;
+        width: $image-width;
+        clip-path: polygon(
+            calc(100% - 60px) 0%,
+            #{$image-height - 60px} 80px,
+            100% 100%,
+            60px 100%,
+            0 #{$image-height - 60px},
+            0% 0%
+        );
+    }
+}

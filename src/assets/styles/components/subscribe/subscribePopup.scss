@@ -1,0 +1,84 @@
+.subscribePopup {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    background: #fff;
+    clear: left;
+    font: 14px Helvetica, Arial, sans-serif;
+    width: 100%;
+    z-index: 1;
+    display: none;
+    height: 200px;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 400px;
+    transform: translateX(-50%) translateY(-50%);
+    padding: 32px 32px 0;
+    border-radius: 16px;
+    &.active {
+        display: flex;
+    }
+}
+.subscribePopup__close {
+    position: absolute;
+    right: 16px;
+    top: 16px;
+    height: 24px;
+    width: 24px;
+}
+.subscribePopup__close-button {
+    position: relative;
+    display: block;
+    right: 0;
+    height: 24px;
+    width: 24px;
+    top: 0;
+    background-color: transparent;
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        left: -2px;
+        top: calc(50% - 2px);
+        width: 28px;
+        height: 4px;
+        background-color: rgb(224, 224, 224);
+        border-radius: 4px;
+        transform: rotateZ(45deg);
+    }
+    &::after {
+        transform: rotateZ(-45deg);
+    }
+}
+.subscribe-popup__input {
+    margin-bottom: 4px !important;
+    width: 100% !important;
+}
+
+@media (min-width: 300px) and (max-width: 479px) {
+    .subscribePopup {
+        max-width: calc(100% - 40px);
+        padding: 20px 32px 0;
+        height: 160px;
+    }
+    .subscribePopup__close {
+        right: 12px;
+        top: 12px;
+        height: 20px;
+        width: 20px;
+    }
+    .subscribePopup__close-button {
+        position: relative;
+        display: block;
+        right: 0;
+        height: 20px;
+        width: 20px;
+        &::before,
+        &::after {
+            left: -2px;
+            top: calc(50% - 2px);
+            width: 20px;
+            height: 3px;
+        }
+    }
+}
